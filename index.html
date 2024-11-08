@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Resume Builder</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+    <h3>Resume Builder</h3>
+    <form id="resumeForm">
+        <label for="name">Name<span class="required">*</span></label>
+        <input id="name" type="text" placeholder="Your name" required>
+
+        <label for="email">Email<span class="required">*</span></label>
+        <input id="email" type="email" placeholder="Your email" required>
+
+        <label for="phone">Phone Number<span class="required">*</span></label>
+        <input id="phone" type="tel" placeholder="Your phone number" required>
+
+        <label for="linkedin">LinkedIn Profile<span class="required">*</span></label>
+        <input id="linkedin" type="url" placeholder="Your LinkedIn Profile" required>
+
+        <label for="github">GitHub Profile<span class="required">*</span></label>
+        <input id="github" type="url" placeholder="Your GitHub Profile" required>
+
+        <label for="education">Education<span class="required">*</span></label>
+        <input id="education" type="text" placeholder="Your Education Details" required>
+        <button type="button" onclick="addField('education')">+ Add More Education</button>
+
+        <label for="experience">Experience<span class="required">*</span></label>
+        <input id="experience" type="text" placeholder="Your Experience Details" required>
+        <button type="button" onclick="addField('experience')">+ Add More Experience</button>
+
+        <label for="photo">Upload Your Photo<span class="required">*</span></label>
+        <input id="photo" type="file" accept="image/*" required>
+
+        <button type="button" onclick="generateResume()">Generate Resume</button>
+    </form>
+
+    <div id="resumePreview" style="display: none;">
+        <h2 id="displayName"></h2>
+        <img id="displayPhoto" alt="Uploaded Photo" />
+        <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+        <p><strong>Phone:</strong> <span id="displayPhone"></span></p>
+        <p><strong>LinkedIn:</strong> <span id="displayLinkedIn"></span></p>
+        <p><strong>GitHub:</strong> <span id="displayGitHub"></span></p>
+        <h3>Education</h3>
+        <ul id="displayEducation"></ul>
+        <h3>Experience</h3>
+        <ul id="displayExperience"></ul>
+    </div>
+
+    <div>
+        <button type="button" onclick="DownloadResume()" style="display: none;" id="Download">Download Resume</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
